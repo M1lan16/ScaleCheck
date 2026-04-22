@@ -11,7 +11,7 @@
     
     --border-color: #27272a;
 
-    var(--color-yes): #10b981;
+
     --color-yes: #10b981;
     --color-yes-hover: #059669;
     --color-no: #ef4444;
@@ -44,6 +44,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
+    font-size: 16px;
 }
 
 /* ==========================================================================
@@ -72,10 +73,10 @@ body {
     overflow: hidden; /* For progress bar at the top */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .card-layout {
-        padding: 1.5rem;
-        padding-top: 2rem; /* Give room for top progress bar */
+        padding: 20px;
+        padding-top: 30px; /* Give room for top progress bar */
     }
 }
 
@@ -115,7 +116,7 @@ body {
    Typography & Specific Blocks
    ========================================================================== */
 .main-title {
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -130,7 +131,7 @@ body {
 }
 
 .welcome-description {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     text-align: left;
     color: var(--text-muted);
@@ -149,7 +150,7 @@ body {
 }
 
 .question-title {
-    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    font-size: 32px;
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 2.5rem; 
@@ -185,6 +186,10 @@ button {
     border-radius: 8px;
     transition: background-color 0.2s ease, transform 0.1s ease;
     width: 100%;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 button:active {
@@ -208,14 +213,14 @@ button:active {
 .btn-dark:hover { background-color: var(--color-dark-btn-hover); }
 
 .answers-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 641px) {
     .answers-grid {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
     }
 }
 
@@ -236,11 +241,32 @@ button:active {
 .btn-no:hover { background-color: var(--color-no-hover); }
 
 .lang-grid {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     max-width: 400px;
     margin: 0 auto;
+}
+
+@media (min-width: 641px) {
+    .lang-grid {
+        flex-direction: row;
+    }
+}
+
+/* Base scaling overrides */
+@media (max-width: 640px) {
+    body {
+        font-size: 14px;
+    }
+    .main-title,
+    .welcome-title,
+    .question-title {
+        font-size: 24px;
+    }
+    .welcome-description {
+        font-size: 14px;
+    }
 }
 
 /* ==========================================================================
