@@ -75,8 +75,14 @@ body {
 
 @media (max-width: 640px) {
     .card-layout {
-        padding: 20px;
+        padding: 24px;
         padding-top: 30px; /* Give room for top progress bar */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-layout {
+        padding: 24px;
     }
 }
 
@@ -165,7 +171,7 @@ body {
 }
 
 .mt-l { margin-top: 2rem; }
-.mt-xl { margin-top: 3rem; }
+.mt-xl { margin-top: 40px; } /* Ensure at least 40px */
 
 /* Status Colors */
 .text-warning { color: var(--color-warning); }
@@ -300,6 +306,7 @@ button:active {
 .result-body .summary {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    padding: 0 4px; /* Prevent touching edges */
 }
 
 .result-body b {
@@ -313,9 +320,10 @@ button:active {
     margin-bottom: 1.5rem;
     font-size: 1rem;
     line-height: 1.6;
-    padding-left: 0;
+    padding-left: 28px; /* Match requirement */
+    list-style-position: outside; /* Match requirement */
 }
 
 .result-body .fix-item {
-    margin-bottom: 0.8rem;
+    margin-bottom: 12px; /* Set to 12px gap */
 }
