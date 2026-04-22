@@ -1,0 +1,295 @@
+/* ==========================================================================
+   CSS Variables & Base
+   ========================================================================== */
+:root {
+    /* Pure deep dark */
+    --bg-main: #09090b;
+    /* Dark grey */
+    --bg-card: #18181b; 
+    --text-primary: #FFFFFF;
+    --text-muted: #E0E0E0;
+    
+    --border-color: #27272a;
+
+    var(--color-yes): #10b981;
+    --color-yes: #10b981;
+    --color-yes-hover: #059669;
+    --color-no: #ef4444;
+    --color-no-hover: #dc2626;
+    --color-dark-btn: #444444;
+    --color-dark-btn-hover: #555555;
+    
+    --color-warning: #FF6B6B;
+    --color-success: #10b981;
+    
+    --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+    --transition-speed: 0.3s;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+.app-container {
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    padding: 1.5rem;
+    min-height: 400px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card layout */
+.card-layout {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: none; /* No shadow or glow */
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* For progress bar at the top */
+}
+
+@media (max-width: 600px) {
+    .card-layout {
+        padding: 1.5rem;
+        padding-top: 2rem; /* Give room for top progress bar */
+    }
+}
+
+.centered-text {
+    text-align: center;
+}
+
+/* State Transitions */
+.view-state {
+    position: absolute;
+    width: calc(100% - 3rem); 
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%) translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed) ease;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .view-state {
+        width: calc(100% - 2rem);
+        left: 1rem;
+    }
+}
+
+.view-state.active {
+    opacity: 1;
+    transform: translateY(-50%) translateY(0);
+    visibility: visible;
+    pointer-events: all;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   Typography & Specific Blocks
+   ========================================================================== */
+.main-title {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.welcome-title {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.welcome-description {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.welcome-description p {
+    margin-bottom: 1rem;
+}
+.welcome-description ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+.welcome-description li {
+    margin-bottom: 0.5rem;
+}
+
+.question-title {
+    font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 2.5rem; 
+    color: var(--text-primary);
+}
+
+.instruction-block {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.mt-l { margin-top: 2rem; }
+.mt-xl { margin-top: 3rem; }
+
+/* Status Colors */
+.text-warning { color: var(--color-warning); }
+.text-success { color: var(--color-success); }
+
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-lang {
+    background-color: var(--color-dark-btn);
+    color: var(--text-primary);
+}
+.btn-lang:hover { background-color: var(--color-dark-btn-hover); }
+
+.btn-dark {
+    background-color: var(--color-dark-btn);
+    color: var(--text-primary);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.btn-dark:hover { background-color: var(--color-dark-btn-hover); }
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 500px) {
+    .answers-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.btn-yes {
+    background-color: var(--color-yes);
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 1.2rem;
+}
+.btn-yes:hover { background-color: var(--color-yes-hover); }
+
+.btn-no {
+    background-color: var(--color-no);
+    color: #fff;
+    font-size: 1.25rem;
+    padding: 1.2rem;
+}
+.btn-no:hover { background-color: var(--color-no-hover); }
+
+.lang-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Quiz Specifics
+   ========================================================================== */
+.progress-bar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px; /* thin */
+    background-color: transparent; /* Top of card */
+    z-index: 50;
+}
+
+.progress-indicator {
+    height: 100%;
+    background-color: var(--color-yes); /* Green #10b981 */
+    width: var(--progress, 0%);
+    transition: width 0.3s ease;
+}
+
+/* ==========================================================================
+   Result Body Content
+   ========================================================================== */
+.result-body {
+    text-align: left;
+    color: var(--text-muted);
+}
+
+.result-body .summary {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-body b {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.result-body .fix-list {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-left: 0;
+}
+
+.result-body .fix-item {
+    margin-bottom: 0.8rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Readiness Assessment</title>
+    <!-- Google Fonts: Roboto/Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="app" class="app-container">
+        
+        <!-- LANGUAGE SELECTION VIEW -->
+        <section id="lang-view" class="view-state active">
+            <div class="content-wrapper card-layout centered-text">
+                <h1 class="main-title">ВЫБЕРИТЕ ЯЗЫК / ОБЕРІТЬ МОВУ</h1>
+                <div class="lang-grid">
+                    <button class="btn-lang" data-lang="ru">Русский</button>
+                    <button class="btn-lang" data-lang="ua">Українська</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- WELCOME VIEW -->
+        <section id="welcome-view" class="view-state hidden">
+            <div class="content-wrapper card-layout">
+                <h1 id="welcome-title" class="welcome-title">
+                    <!-- Injected via JS -->
+                </h1>
+                <div class="welcome-description" id="welcome-instruction">
+                    <!-- Injected via JS -->
+                </div>
+                <button id="btn-start" class="btn-dark mt-l">
+                    <!-- Injected via JS -->
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ VIEW -->
+        <section id="quiz-view" class="view-state hidden">
+            <div class="content-wrapper card-layout">
+                <div class="progress-bar-container">
+                    <div class="progress-indicator" id="progress-indicator"></div>
+                </div>
+
+                <div class="question-container">
+                    <h2 id="question-text" class="question-title">Loading...</h2>
+                </div>
+
+                <div class="answers-grid">
+                    <button class="btn-yes" id="btn-yes">
+                        <span id="btn-yes-text">Да</span>
+                    </button>
+                    <button class="btn-no" id="btn-no">
+                        <span id="btn-no-text">Нет</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULT VIEW -->
+        <section id="result-view" class="view-state hidden">
+            <div class="content-wrapper card-layout">
+                <h1 id="result-title" class="main-title">Result Title</h1>
+                <div id="result-content" class="result-body">
+                    <!-- Injected via JS (HTML Content) -->
+                </div>
+
+                <div class="centered-text">
+                    <button id="btn-restart" class="btn-dark mt-xl">
+                        <!-- Injected via JS -->
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
